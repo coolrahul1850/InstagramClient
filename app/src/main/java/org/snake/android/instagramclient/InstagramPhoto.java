@@ -10,6 +10,7 @@ public class InstagramPhoto {
     public int imageHeight;
     public int likesCount;
     public String profileImageUrl;
+    public long createdTime;
 
     //Capturing the last two comments
     InstagramPhotoComments lastComment = new InstagramPhotoComments();

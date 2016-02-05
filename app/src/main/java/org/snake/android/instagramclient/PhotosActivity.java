@@ -51,6 +51,8 @@ public class PhotosActivity extends AppCompatActivity {
         aPhotos = new InstagramPhotosAdapter(this,photos);
         ListView lvPhotos = (ListView) findViewById(R.id.lvPhotos);
         lvPhotos.setAdapter(aPhotos);
+
+
         //Fetch the popular photos
         fetchPopularPhotos();
 
@@ -106,6 +108,8 @@ public class PhotosActivity extends AppCompatActivity {
                             photo.imageHeight = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
                             photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
                             photo.profileImageUrl = photoJSON.getJSONObject("user").getString("profile_picture");
+                            photo.createdTime = photoJSON.getJSONObject("caption").getLong("created_time");
+                            Log.d("DEBUG",photo.createdTime+"");
                             //getting the 2 last comments
                             try {
                                 photosCommentsJSONObject = photoJSON.getJSONObject("comments");
